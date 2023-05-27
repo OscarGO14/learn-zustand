@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Counter from "./components/Counter";
 
 function App() {
+  console.log("RENDERING APP");
   return (
     <>
       <div>

@@ -6,6 +6,7 @@ const Login = () => {
     state.setName,
     state.logOut,
   ]);
+  console.log("RENDERING LOGIN");
   return (
     <div>
       <h1>{user ? `user logged in: ${user}` : "Guest"}</h1>

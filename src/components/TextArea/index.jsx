@@ -1,13 +1,15 @@
 // Crear prompt en react para pedir datos al usuario
 import { useState } from "react";
 import { useRef } from "react";
+import { useUserStore } from "../../store";
 
 function TextArea() {
   const inputValue = useRef();
   const [response, setResponse] = useState("");
-  const resetValue = () => {
-    inputValue.current.value = "";
-  };
+  const user = useUserStore((state) => state.name);
+
+  console.log("RENDERING TEXTAREA");
+
   const handleResponse = (value) => {
     const formatedValue = value.replace(/\n/g, "").trim();
     if (formatedValue.includes("<h1>Hola Mundo</h1>")) {
@@ -25,7 +27,10 @@ function TextArea() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p>Tu primer ejercio, escribe Hola Mundo en una etiqueta h1</p>
+      <p>
+        Hola {user || "invitado"}, aquí tienes tu primer ejercio, escribe Hola
+        Mundo en una etiqueta h1
+      </p>
       <label>
         <textarea ref={inputValue} className="code-input" />
       </label>

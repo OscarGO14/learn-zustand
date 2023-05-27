@@ -6,6 +6,7 @@ const Counter = () => {
     state.increaseCount,
     state.resetCount,
   ]);
+  console.log("RENDERING COUNTER");
   return (
     <div className="card">
       <button onClick={increaseCount}>count is {count}</button>
